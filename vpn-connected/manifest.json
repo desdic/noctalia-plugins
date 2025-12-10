@@ -1,0 +1,17 @@
+{
+	"id": "vpn-connected",
+	"name": "VPN connection",
+	"version": "1.0.0",
+	"minNoctaliaVersion": "3.6.0",
+	"author": "Kim Nielsen",
+	"license": "MIT",
+	"repository": "https://github.com/desdic/noctalia-plugins",
+	"description": "Check VPN connection",
+	"entryPoints": {
+		"barWidget": "BarWidget.qml",
+		"settings": "Settings.qml"
+	},
+	"dependencies": {
+		"plugins": []
+	}
+}
