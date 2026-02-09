@@ -27,7 +27,6 @@ NIconButton {
 	tooltipDirection: BarService.getTooltipDirection()
 	baseSize: Style.capsuleHeight
 	applyUiScale: false
-	density: Settings.data.bar.density
 	customRadius: Style.radiusL
 	colorBg: Style.capsuleColor
 	colorFg: Color.mOnSurface
