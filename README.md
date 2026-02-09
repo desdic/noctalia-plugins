@@ -1,3 +1,5 @@
+# Deprecated since they only work on noctalia v4
+
 # Plugins for noctalia
 
 These are my plugins for noctalia. Feel free to use/clone them at own risk.

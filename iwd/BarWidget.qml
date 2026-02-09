@@ -20,9 +20,9 @@ NIconButton {
 
 	property bool wifiConnected: false
 	property var wifiinfo: {}
-	property int signalStrengh: 0
+	property int signalStrength: 0
 
-	icon: signalIcon(root.signalStrengh, root.wifiConnected)
+	icon: signalIcon(root.signalStrength, root.wifiConnected)
 	tooltipText: buildTooltip()
 	tooltipDirection: BarService.getTooltipDirection()
 	baseSize: Style.capsuleHeight
@@ -73,9 +73,17 @@ NIconButton {
 				wifiinfo = data;
 				wifiConnected = data["State"] === "connected";
 
-				if (wifiConnected) {
-					signalStrengh = parseInt(wifiinfo["AverageRSSI"].split(" ")[0]);
-					root.icon = signalIcon(signalStrengh, root.wifiConnected)
+				if (wifiConnected && wifiinfo && wifiinfo["AverageRSSI"]) {
+					const rssiString = wifiinfo["AverageRSSI"].toString();
+					const rssiParts = rssiString.split(" ");
+					
+					if (rssiParts.length > 0) {
+						const parsedValue = parseInt(rssiParts[0], 10);
+						if (!isNaN(parsedValue)) {
+							signalStrength = parsedValue;  // Note: fixed typo
+							root.icon = signalIcon(signalStrength, root.wifiConnected);
+						}
+					}
 				}
 			}
 		}
